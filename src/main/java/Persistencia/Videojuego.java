@@ -21,7 +21,7 @@ public class Videojuego {
 
     @NotNull
     @Column(name = "copias_disponibles", nullable = false)
-    private Integer copiasDisponibles;
+    private Integer copias_disponibles;
 
     @Size(max = 30)
     @NotNull
@@ -34,10 +34,10 @@ public class Videojuego {
     @OneToMany(mappedBy = "idVideojuego")
     private Set<Compra> compras = new LinkedHashSet<>();
 
-    public Videojuego(Integer id, String titulo, Integer copiasDisponibles, Double precio) {
+    public Videojuego(Integer id, String titulo, Integer copias_disponibles, Double precio) {
         this.id = id;
         this.titulo = titulo;
-        this.copiasDisponibles = copiasDisponibles;
+        this.copias_disponibles = copias_disponibles;
         this.precio = precio;
     }
 
@@ -60,12 +60,12 @@ public class Videojuego {
         this.precio = precio;
     }
 
-    public Integer getCopiasDisponibles() {
-        return copiasDisponibles;
+    public Integer getCopias_disponibles() {
+        return copias_disponibles;
     }
 
-    public void setCopiasDisponibles(Integer copiasDisponibles) {
-        this.copiasDisponibles = copiasDisponibles;
+    public void setCopias_disponibles(Integer copias_disponibles) {
+        this.copias_disponibles = copias_disponibles;
     }
 
     public String getTitulo() {
