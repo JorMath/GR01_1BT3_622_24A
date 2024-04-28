@@ -77,7 +77,7 @@ public class Usuario {
         this.compras = compras;
     }
     public boolean validar(String nombre, String apellido) {
-        return true;
+        return this.nombre.equals(nombre) && this.apellido.equals(apellido);
     };
 
 }
