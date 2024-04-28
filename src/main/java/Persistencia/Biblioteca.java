@@ -21,6 +21,13 @@ public class Biblioteca {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario idUsuario;
 
+    public Biblioteca(Integer id, Videojuego idVideojuego, Usuario idUsuario) {
+        this.id = id;
+        this.idVideojuego = idVideojuego;
+        this.idUsuario = idUsuario;
+    }
+    public Biblioteca() {}
+
     public Integer getId() {
         return id;
     }

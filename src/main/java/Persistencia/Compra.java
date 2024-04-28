@@ -24,6 +24,15 @@ public class Compra {
     @NotNull
     @Column(name = "precio_a_pagar", nullable = false)
     private Double precioAPagar;
+    public Compra(Videojuego idVideojuego, Usuario idUsuario, Double precioAPagar){
+        this.idVideojuego = idVideojuego;
+        this.idUsuario = idUsuario;
+        this.precioAPagar = precioAPagar;
+    }
+
+    public Compra() {
+
+    }
 
     public Integer getId() {
         return id;

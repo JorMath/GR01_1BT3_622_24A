@@ -34,5 +34,9 @@ public class SvUsuario extends HttpServlet {
             if (usuario.validar(nombre, apellido))
                 response.sendRedirect("busqueda.jsp");
         }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
     }
+
 }

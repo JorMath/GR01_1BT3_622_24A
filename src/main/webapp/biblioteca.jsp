@@ -10,35 +10,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Juegos Disponibles</title>
+    <title>Juegos Comprados</title>
 </head>
 <body>
 <h1>Lista de Juegos: </h1>
 <%
     //debe coincidir los nombres del atributo
-    List<Videojuego> listaVideojuegos = (List) request.getSession().getAttribute("listaVideojuegos");
+    List<Videojuego> listaVideojuegos = (List) request.getSession().getAttribute("lista");
     if(listaVideojuegos != null) {
-    int contador = 1;
-    for(Videojuego videojuego : listaVideojuegos) {
-        //NO CIERRO EL FOR POR EL CODIGO HTML
+        int contador = 1;
+        for(Videojuego videojuego : listaVideojuegos) {
+            //NO CIERRO EL FOR POR EL CODIGO HTML
 
 %>
-<form action="servlet-compra" method="post">
+<form>
     <p><b>Juego N°: <%=contador%></b></p>
     <p>Titulo: <%=videojuego.getTitulo()%></p>
-    <p>Precio: <%=videojuego.getPrecio()%></p>
-    <p>Copias Disponibles: <%=videojuego.getCopias_disponibles()%></p>
-    <input type="hidden" name="idVideojuego" value="<%=videojuego.getId()%>">
-    <input type="hidden" name="precio" value="<%=videojuego.getPrecio()%>">
-    <button type="submit">Comprar</button>
-<p>--------------------------------------</p>
+    <button type="submit">Jugar</button>
+    <p>--------------------------------------</p>
 </form>
 <%
         //POR FIN SE CIERRA EL FOR
         contador++;
     }
-    }
-    else {
+}
+else {
 
 
 %>
@@ -47,7 +43,8 @@
     }
 %>
 <form action="servlet-busqueda" method="post">
-<button type="submit">Volver</button>
+    <button type="submit">Volver</button>
 </form>
 </body>
 </html>
+
