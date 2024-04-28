@@ -1,4 +1,4 @@
-package Servlets;
+package epn.Servlets;
 
 import Persistencia.Videojuego;
 import jakarta.persistence.EntityManager;
@@ -25,14 +25,15 @@ public class SvVideojuego extends HttpServlet {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        List<Videojuego> listaVideojuegos = entityManager.createQuery("SELECT v.precio, v.copias_disponibles, v.titulo FROM Videojuego v", Videojuego.class).getResultList();
+        List<Videojuego> listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v", Videojuego.class).getResultList();
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaVideojuegos", listaVideojuegos);
-        response.sendRedirect("busqueda.jsp");
+        response.sendRedirect("resultado.jsp");
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        response.sendRedirect("busqueda.jsp");
     }
+
 }

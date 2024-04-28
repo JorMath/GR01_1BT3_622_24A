@@ -32,7 +32,7 @@ public class SvUsuario extends HttpServlet {
         String apellido = request.getParameter("apellido");
         for (Usuario usuario : listaUsuarios) {
             if (usuario.validar(nombre, apellido))
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("busqueda.jsp");
         }
     }
 }
