@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -22,17 +21,8 @@ public class SvVideojuego extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Sesion que se crea automáticamente al entrar a la web por el usuario
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        String titulo = request.getParameter("titulo");
-        List<Videojuego> listaVideojuegos;
-        if (titulo != null) {
-            listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v where v.titulo = "+titulo, Videojuego.class).getResultList();
-        }
-        else{
-            listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v", Videojuego.class).getResultList();
-        }
+        BusquedaVideojuegos busquedaVideojuegos = new BusquedaVideojuegos();
+        List<Videojuego> listaVideojuegos = busquedaVideojuegos.filtrarBusqueda(request.getParameter("titulo"));
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaVideojuegos", listaVideojuegos);
         response.sendRedirect("resultado.jsp");

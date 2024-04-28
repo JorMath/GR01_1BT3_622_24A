@@ -27,9 +27,7 @@
     <p><b>Juego N°: <%=contador%></b></p>
     <p>Titulo: <%=videojuego.getTitulo()%></p>
     <p>Precio: <%=videojuego.getPrecio()%></p>
-    <p>Copias Disponibles: <%=videojuego.getCopiasDisponibles()%></p>
-    <input type="hidden" name="idVideojuego" value="<%=videojuego.getId()%>">
-    <input type="hidden" name="precio" value="<%=videojuego.getPrecio()%>">
+    <p>Copias Disponibles: <%=videojuego.getCopias_disponibles()%></p>
     <button type="submit">Comprar</button>
 <p>--------------------------------------</p>
 </form>
