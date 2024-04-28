@@ -16,5 +16,8 @@
     <p><label>Titulo: </label> <input type="text" name="titulo"></p>
     <button type="submit">Buscar</button>
 </form>
+<form action="servlet-biblioteca" method="get">
+    <button type="submit">Biblioteca de Juegos</button>
+</form>
 </body>
 </html>

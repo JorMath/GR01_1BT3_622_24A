@@ -13,15 +13,14 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SvVideojuego", value = "/servlet-busqueda")
-public class SvVideojuego extends HttpServlet {
+@WebServlet(name = "SvVideojuego", value = "/servlet-biblioteca")
+public class SvBiblioteca extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Sesion que se crea automáticamente al entrar a la web por el usuario
-
         BusquedaVideojuegos busquedaVideojuegos = new BusquedaVideojuegos();
         List<Videojuego> listaVideojuegos = busquedaVideojuegos.filtrarBusqueda(request.getParameter("titulo"));
         HttpSession sesion = request.getSession();
@@ -31,7 +30,6 @@ public class SvVideojuego extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //volver
         response.sendRedirect("busqueda.jsp");
     }
 
