@@ -34,6 +34,16 @@ public class Videojuego {
     @OneToMany(mappedBy = "idVideojuego")
     private Set<Compra> compras = new LinkedHashSet<>();
 
+    public Videojuego(Integer id, String titulo, Integer copiasDisponibles, Double precio) {
+        this.id = id;
+        this.titulo = titulo;
+        this.copiasDisponibles = copiasDisponibles;
+        this.precio = precio;
+    }
+
+    public Videojuego() {
+    }
+
     public Integer getId() {
         return id;
     }
