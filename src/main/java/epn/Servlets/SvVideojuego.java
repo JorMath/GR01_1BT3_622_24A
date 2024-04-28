@@ -28,7 +28,7 @@ public class SvVideojuego extends HttpServlet {
         String titulo = request.getParameter("titulo");
         List<Videojuego> listaVideojuegos;
         if (titulo != null) {
-            listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v where v.titulo = "+titulo, Videojuego.class).getResultList();
+            listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v where v.titulo like '%"+titulo+"%'", Videojuego.class).getResultList();
         }
         else{
             listaVideojuegos = entityManager.createQuery("SELECT v.id, v.precio, v.copiasDisponibles, v.titulo FROM Videojuego v", Videojuego.class).getResultList();
