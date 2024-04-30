@@ -24,6 +24,9 @@ public  class BusquedaVideojuegos {
         else {
             lista = entityManager.createQuery("SELECT v from Videojuego v where v.titulo like '%"+titulo+"%'", Videojuego.class).getResultList();
         }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
         return lista;
     }
 }

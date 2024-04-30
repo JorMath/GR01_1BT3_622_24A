@@ -17,7 +17,7 @@
     <button type="submit">Buscar</button>
 </form>
 <form action="servlet-biblioteca" method="get">
-    <button type="submit">Biblioteca de Juegos</button>
+    <button type="submit">Biblioteca de juegos</button>
 </form>
 </body>
 </html>

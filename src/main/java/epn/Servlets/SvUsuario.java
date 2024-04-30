@@ -35,5 +35,9 @@ public class SvUsuario extends HttpServlet {
                 sesion.setAttribute("usuario", usuario);
                 response.sendRedirect("busqueda.jsp");
         }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
     }
+
 }
