@@ -32,6 +32,7 @@ public class SvUsuario extends HttpServlet {
         String apellido = request.getParameter("apellido");
         for (Usuario usuario : listaUsuarios) {
             if (usuario.validar(nombre, apellido))
+                sesion.setAttribute("usuario", usuario);
                 response.sendRedirect("busqueda.jsp");
         }
         entityManager.getTransaction().commit();
