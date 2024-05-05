@@ -34,6 +34,16 @@ public class Compra {
 
     }
 
+    public Compra(Videojuego idVideojuego, Usuario idUsuario, Double precioAPagar) {
+        this.idVideojuego = idVideojuego;
+        this.idUsuario = idUsuario;
+        this.precioAPagar = precioAPagar;
+    }
+
+    public Compra(int idVideojuego, int idUsuario, double precio) {
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -66,4 +76,8 @@ public class Compra {
         this.precioAPagar = precioAPagar;
     }
 
+    public void comprar(int idVideojuego, double precioAPagar) {
+
+        System.out.println("El juego con ID: " + idVideojuego + ", se ha cancelado por:" + precioAPagar);
+    }
 }
