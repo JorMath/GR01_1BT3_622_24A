@@ -23,21 +23,10 @@ public class SvBiblioteca extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List lista = new ArrayList<Videojuego>();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = ControladorEntidad.getEntityManager("default");
         entityManager.getTransaction().begin();
-            lista = entityManager.createQuery(
-                    "SELECT v FROM Biblioteca b JOIN Videojuego v on b.idVideojuego = v",
-                    Videojuego.class
-            ).getResultList();
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            entityManagerFactory.close();
-            request.getSession().setAttribute("lista", lista);
+        request.getSession().setAttribute("lista", BusquedaVideojuegos.obtenerVideojuegosBiblioteca(entityManager));
+        ControladorEntidad.cerrarEntidad(entityManager);
         response.sendRedirect("biblioteca.jsp");
-
-
-
     }
 }
