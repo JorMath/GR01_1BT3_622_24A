@@ -2,7 +2,6 @@ package epn.Servlets;
 
 import java.io.*;
 import java.util.List;
-
 import Persistencia.Biblioteca;
 import Persistencia.Compra;
 import Persistencia.Usuario;
@@ -29,21 +28,15 @@ public class SvCompra extends HttpServlet {
         int idUsuario = 1;
         int idVideojuego = Integer.parseInt(request.getParameter("idVideojuego"));
         double precio = Double.parseDouble(request.getParameter("precio"));
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = ControladorEntidad.getEntityManager("default");
         entityManager.getTransaction().begin();
-        Usuario usuario = entityManager.find(Usuario.class, idUsuario);
-        Compra compra = new Compra(entityManager.createQuery("select v from Videojuego v where v.id = "+idVideojuego, Persistencia.Videojuego.class).getResultList().get(0), usuario, precio);
-        entityManager.persist(compra);
+        entityManager.persist(new Compra(entityManager.find(Videojuego.class, idVideojuego), entityManager.find(Usuario.class, idUsuario), precio));
         entityManager.getTransaction().commit();
         entityManager.getTransaction().begin();
-        Videojuego videojuego = entityManager.find(Videojuego.class, idVideojuego);
         Biblioteca biblioteca = entityManager.find(Biblioteca.class, idUsuario);
-        biblioteca.setIdVideojuego(videojuego);
-        //entityManager.persist(videojuego);
+        biblioteca.setIdVideojuego(entityManager.find(Videojuego.class, idVideojuego));
         entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
+        ControladorEntidad.cerrarEntidad(entityManager);
         response.sendRedirect("busqueda.jsp");
-        }
     }
+}

@@ -22,7 +22,7 @@ public class SvVideojuego extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Sesion que se crea automáticamente al entrar a la web por el usuario
         BusquedaVideojuegos busquedaVideojuegos = new BusquedaVideojuegos();
-        List<Videojuego> listaVideojuegos = busquedaVideojuegos.filtrarBusqueda(request.getParameter("titulo"));
+        List listaVideojuegos = busquedaVideojuegos.filtrarBusqueda(request.getParameter("titulo"));
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaVideojuegos", listaVideojuegos);
         response.sendRedirect("resultado.jsp");
