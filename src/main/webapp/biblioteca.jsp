@@ -42,7 +42,7 @@ else {
 <%
     }
 %>
-<form action="servlet-busqueda" method="post">
+<form action="SvBiblioteca" method="post">
     <button type="submit">Volver</button>
 </form>
 </body>

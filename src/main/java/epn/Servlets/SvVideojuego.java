@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SvVideojuego", value = "/servlet-busqueda")
+@WebServlet(name = "SvVideojuego", value = "SvVideojuego")
 public class SvVideojuego extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }

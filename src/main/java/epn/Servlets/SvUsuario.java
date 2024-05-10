@@ -11,7 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "SvUsuario", value = "/servlet-auth")
+@WebServlet(name = "SvUsuario", value = "SvUsuario")
 public class SvUsuario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

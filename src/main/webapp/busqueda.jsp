@@ -12,11 +12,11 @@
 </head>
 <body>
 <h1>Ingresa el titulo a buscar</h1>
-<form action="servlet-busqueda" method="get">
+<form action="SvVideojuego" method="get">
     <p><label>Titulo: </label> <input type="text" name="titulo"></p>
     <button type="submit">Buscar</button>
 </form>
-<form action="servlet-biblioteca" method="get">
+<form action="SvBiblioteca" method="get">
     <button type="submit">Biblioteca de juegos</button>
 </form>
 </body>

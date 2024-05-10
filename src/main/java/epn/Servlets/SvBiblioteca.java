@@ -15,7 +15,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "SvBiblioteca", value = "/servlet-biblioteca")
+@WebServlet(name = "SvBiblioteca", value = "SvBiblioteca")
 public class SvBiblioteca extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

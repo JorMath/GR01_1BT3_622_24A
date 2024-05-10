@@ -23,7 +23,7 @@
         //NO CIERRO EL FOR POR EL CODIGO HTML
 
 %>
-<form action="servlet-compra" method="post">
+<form action="SvCompra" method="post">
     <p><b>Juego N°: <%=contador%></b></p>
     <p>Titulo: <%=videojuego.getTitulo()%></p>
     <p>Precio: <%=videojuego.getPrecio()%></p>
@@ -46,7 +46,7 @@
 <%
     }
 %>
-<form action="servlet-busqueda" method="post">
+<form action="SvVideojuego" method="post">
 <button type="submit">Volver</button>
 </form>
 </body>

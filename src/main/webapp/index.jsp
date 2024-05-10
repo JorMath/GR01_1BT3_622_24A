@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Ingresa tus datos:</h1>
-<form action="servlet-auth" method="POST">
+<form action="SvUsuario" method="POST">
     <p><label>Nombre: </label> <input type="text" name="nombre"></p>
     <p><label>Apellido: </label> <input type="text" name="apellido"></p>
     <button type="submit">Ingresar</button>
