@@ -12,14 +12,16 @@ public class Cliente {
     private int idCliente;
     private String nombre;
     private String apellido;
+    private String clave;
     @OneToMany
     @JoinColumn(name = "idCompra")
     private List<Compra> compra;
 
-    public Cliente(int idCliente, String nombre, String apellido, List<Compra> compra) {
+    public Cliente(int idCliente, String nombre, String apellido, String clave, List<Compra> compra) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.clave = clave;
         this.compra = compra;
     }
 
@@ -57,5 +59,13 @@ public class Cliente {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }
