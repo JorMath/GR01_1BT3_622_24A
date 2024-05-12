@@ -1,4 +1,4 @@
-package epn.Servlets;
+package ec.edu.epn.servlets;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

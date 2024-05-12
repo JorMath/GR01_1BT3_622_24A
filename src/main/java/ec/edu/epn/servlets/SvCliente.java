@@ -1,17 +1,14 @@
-package ec.edu.epn.Servlets;
+package ec.edu.epn.servlets;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import logica.Cliente;
-import logica.ControladoraCliente;
+import ec.edu.epn.logica.Cliente;
+import ec.edu.epn.logica.ControladoraCliente;
 
 @WebServlet(name = "SvCliente", value = "/SvCliente")
 public class SvCliente extends HttpServlet {
@@ -31,14 +28,11 @@ public class SvCliente extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-
         Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
-
         controladoraCliente.crearCliente(cliente); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
     }
 }

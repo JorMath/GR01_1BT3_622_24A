@@ -1,6 +1,6 @@
-package logica;
+package ec.edu.epn.logica;
 
-import Persistencia.ControladoraPersistencia;
+import ec.edu.epn.persistencia.ControladoraPersistencia;
 
 import java.util.List;
 
@@ -13,4 +13,5 @@ public class ControladoraCliente {
     public List<Cliente> listarClientes() {
         return controladoraPersistencia.listarClientes();
     }
+
 }

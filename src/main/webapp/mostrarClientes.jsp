@@ -1,4 +1,4 @@
-<%@ page import="logica.Cliente" %>
+<%@ page import="ec.edu.epn.logica.Cliente" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: usuario

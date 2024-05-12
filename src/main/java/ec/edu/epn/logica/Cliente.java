@@ -1,4 +1,4 @@
-package logica;
+package ec.edu.epn.logica;
 
 import jakarta.persistence.*;
 
@@ -23,9 +23,13 @@ public class Cliente {
         this.compra = compra;
     }
 
-    public Cliente() {
+    public Cliente() {}
+
+
+    public void ingresar(){
 
     }
+
 
     public int getIdCliente() {
         return idCliente;

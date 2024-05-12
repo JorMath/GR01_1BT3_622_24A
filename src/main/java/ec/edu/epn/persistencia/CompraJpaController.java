@@ -1,12 +1,10 @@
-package Persistencia;
+package ec.edu.epn.persistencia;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import logica.Cliente;
-import logica.Compra;
-import logica.Videojuego;
+import ec.edu.epn.logica.Compra;
 
 import java.util.List;
 

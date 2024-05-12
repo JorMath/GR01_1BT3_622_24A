@@ -4,9 +4,9 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="GR01_1BT3_622_24A_PU">
-        <class>logica.Cliente</class>
-        <class>logica.Videojuego</class>
-        <class>logica.Compra</class>
+        <class>ec.edu.epn.logica.Cliente</class>
+        <class>ec.edu.epn.logica.Videojuego</class>
+        <class>ec.edu.epn.logica.Compra</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ejemplov2"/>
             <property name="javax.persistence.jdbc.user" value="root"/>

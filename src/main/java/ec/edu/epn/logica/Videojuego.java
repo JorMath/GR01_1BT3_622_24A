@@ -1,4 +1,4 @@
-package logica;
+package ec.edu.epn.logica;
 
 import jakarta.persistence.*;
 
@@ -10,11 +10,13 @@ public class Videojuego {
     private int idVideojuego;
     private String titulo;
     private String descripcion;
+    private double precio;
 
-    public Videojuego(int idVideojuego, String descripcion, String titulo) {
+    public Videojuego(int idVideojuego, String descripcion, String titulo, double precio) {
         this.idVideojuego = idVideojuego;
         this.descripcion = descripcion;
         this.titulo = titulo;
+        this.precio = precio;
     }
 
     public Videojuego() {
@@ -38,5 +40,13 @@ public class Videojuego {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }

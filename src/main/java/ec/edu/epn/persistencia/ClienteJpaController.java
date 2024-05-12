@@ -1,17 +1,16 @@
-package Persistencia;
+package ec.edu.epn.persistencia;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import logica.Cliente;
-import logica.Compra;
-import logica.Videojuego;
+import ec.edu.epn.logica.Cliente;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class VideojuegoJpaController {
-    public VideojuegoJpaController(EntityManagerFactory emf) {
+public class ClienteJpaController implements Serializable {
+    public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -20,17 +19,17 @@ public class VideojuegoJpaController {
         return emf.createEntityManager();
     }
 
-    public VideojuegoJpaController() {
+    public ClienteJpaController() {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }
 
-    public void create(Videojuego videojuego) {
+    public void create(Cliente cliente) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(videojuego);
+            em.persist(cliente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -39,12 +38,12 @@ public class VideojuegoJpaController {
         }
     }
 
-    public void update(Videojuego videojuego) {
+    public void update(Cliente cliente) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.merge(videojuego);
+            em.merge(cliente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -58,9 +57,9 @@ public class VideojuegoJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Videojuego videojuego = em.find(Videojuego.class, id);
-            if (videojuego != null) {
-                em.remove(videojuego);
+            Cliente cliente = em.find(Cliente.class, id);
+            if (cliente != null) {
+                em.remove(cliente);
             }
             em.getTransaction().commit();
         } finally {
@@ -70,19 +69,19 @@ public class VideojuegoJpaController {
         }
     }
 
-    public Compra findVideojuego(int id) {
+    public Cliente findCliente(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Compra.class, id);
+            return em.find(Cliente.class, id);
         } finally {
             em.close();
         }
     }
 
-    public List<Videojuego> findAllVideojuego() {
+    public List<Cliente> findAllClientes() {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("SELECT v FROM Videojuego v");
+            Query query = em.createQuery("SELECT c FROM Cliente c");
             return query.getResultList();
         } finally {
             em.close();

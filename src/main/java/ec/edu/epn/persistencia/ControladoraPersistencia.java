@@ -1,8 +1,8 @@
-package Persistencia;
+package ec.edu.epn.persistencia;
 
-import logica.Cliente;
-import logica.Compra;
-import logica.Videojuego;
+import ec.edu.epn.logica.Cliente;
+import ec.edu.epn.logica.Compra;
+import ec.edu.epn.logica.Videojuego;
 
 import java.util.List;
 
