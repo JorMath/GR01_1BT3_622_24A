@@ -1,5 +1,6 @@
 package ec.edu.epn.logica;
 
+import ec.edu.epn.persistencia.VideojuegoJpaController;
 import jakarta.persistence.*;
 
 @Entity
@@ -49,4 +50,5 @@ public class Videojuego {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
 }

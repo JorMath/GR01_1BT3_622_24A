@@ -13,18 +13,18 @@
 <body>
 <fieldset>
 <h1>Ingrese los datos del videojuego:</h1>
-<form action="uploadFormulario" method="POST">
+<form action="SvVideojuego" method="POST">
     Título de Videojuego:<br>
-    <input type="text" name="tituloVideojuego">
+    <input type="text" name="tituloVideojuego" required>
     <br>
     Descripción:<br>
-    <input type="text" name="descripcionVideojuego">
+    <input type="text" name="descripcionVideojuego" required>
     <br>
     Precio:<br>
-    <input type="text" name="precioVideojuego">
+    <input type="number" name="precioVideojuego" required>
     <br>
     <br>
-    <input type="submit" value="Upload Videojuego">
+    <input type="submit" value="Publicar videojuego">
 </form>
 </fieldset>
 </body>

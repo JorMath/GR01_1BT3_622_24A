@@ -27,7 +27,9 @@ public class Cliente {
 
     public Cliente() {}
 
+    public void agregarCompra(Compra compra) {
 
+    }
 
     public int getIdCliente() {
         return idCliente;
