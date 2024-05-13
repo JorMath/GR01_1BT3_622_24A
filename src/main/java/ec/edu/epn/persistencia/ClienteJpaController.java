@@ -88,7 +88,7 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public boolean findClienteByNameAndPassword(String name, String password) {
+    public boolean existClientWithNameAndPassword(String name, String password) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.nombre = :name AND c.clave = :password");
@@ -102,4 +102,18 @@ public class ClienteJpaController implements Serializable {
             em.close();
         }
     }
+
+    public Cliente findClientWithNameAndPassword(String name, String password) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.nombre = :name AND c.clave = :password");
+            query.setParameter("name", name);
+            query.setParameter("password", password);
+            return (Cliente) query.getResultList().get(0);
+
+        } finally {
+            em.close();
+        }
+    }
+
 }
