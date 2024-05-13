@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "svcontrolAcceso", value = "/svcontrolAcceso")
-public class svcontrolAcceso extends HttpServlet {
+public class SvControlAcceso extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
