@@ -38,7 +38,7 @@ else {
 
 
 %>
-<h1>No se encontro el titulo</h1>
+<h1>No se encontró el titulo</h1>
 <%
     }
 %>
