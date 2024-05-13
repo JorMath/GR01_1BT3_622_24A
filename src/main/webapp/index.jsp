@@ -12,6 +12,7 @@
         <input type="text" name="nombreEntrante" required> <br>
         Clave*: <br>
         <input type="password" name="claveEntrante" required> <br>
+        <input type="checkbox" name="chkDesarrollador"> ¿Es desarrollador? <br>
         <input type="submit" value="Ingresar"> <br><br>
     </form>
     <br>

@@ -1,7 +1,6 @@
 package ec.edu.epn.Servlets;
 
-import ec.edu.epn.logica.Cliente;
-import ec.edu.epn.logica.ControladoraCliente;
+import ec.edu.epn.logica.ControladoraUsuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "SvControlAcceso", value = "/SvControlAcceso")
 public class SvControlAcceso extends HttpServlet {
-    ControladoraCliente controladoraCliente = new ControladoraCliente();
+    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -27,8 +26,9 @@ public class SvControlAcceso extends HttpServlet {
         String claveEntrante = request.getParameter("clave");
         String chkOption = request.getParameter("chkDesarrollador");
 
-        if(!controladoraCliente.validarIngreso(nombreEntrante, claveEntrante, chkOption)){
+        if(!controladoraUsuario.validarIngreso(nombreEntrante, claveEntrante, chkOption)){
             response.sendRedirect("registro.jsp");
+            return;
         }
         if(esDesarrollador(chkOption)){
             response.sendRedirect("menuDesarrollador.jsp");
@@ -39,7 +39,7 @@ public class SvControlAcceso extends HttpServlet {
     }
 
     private boolean esDesarrollador(String chkOption) {
-        return chkOption.equals("on");
+        return chkOption != null && chkOption == "on";
     }
 
 }
