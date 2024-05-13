@@ -32,20 +32,28 @@ public class SvControlAcceso extends HttpServlet {
         String claveEntrante = request.getParameter("claveEntrante");
         String chkOption = request.getParameter("chkDesarrollador");
 
-        if(!controladoraUsuario.validarIngreso(nombreEntrante, claveEntrante, chkOption)){
+        if(!controladoraUsuario.existeUsuario(nombreEntrante, claveEntrante, chkOption)){
             response.sendRedirect("registro.jsp");
             return;
         }
+
+
+        HttpSession sesion = request.getSession();
+
+
         if(esDesarrollador(chkOption)){
             response.sendRedirect("menuDesarrollador.jsp");
-        } else {
-            HttpSession sesion = request.getSession();
-            List<Videojuego> videojuegos = new ArrayList<Videojuego>();
-            videojuegos = controladoraPersistencia.listarVideojuegos();
-            sesion.setAttribute("videojuegos", videojuegos);
-            response.sendRedirect("catalogo.jsp");
+            sesion.setAttribute("desarrollador", controladoraUsuario.obtenerDesarrollador(nombreEntrante, claveEntrante));
+            return;
         }
 
+        sesion.setAttribute("idUsuario", controladoraUsuario.obtenerIdUsuario(nombreEntrante, claveEntrante));
+        //sesion.setAttribute("cliente", controladoraUsuario.obtenerCliente(nombreEntrante, claveEntrante));
+
+        List<Videojuego> videojuegos = new ArrayList<Videojuego>();
+        videojuegos = controladoraPersistencia.listarVideojuegos();
+        sesion.setAttribute("videojuegos", videojuegos);
+        response.sendRedirect("catalogo.jsp");
     }
 
     private boolean esDesarrollador(String chkOption) {
