@@ -7,7 +7,7 @@
 <body>
 <fieldset>
     <h1>Ingresa tus credenciales</h1>
-    <form action="controlAcceso.jsp" method="post">
+    <form action="SvControlAcceso" method="post">
         Nombre* : <br>
         <input type="text" name="nombre" required> <br>
         Clave*: <br>
