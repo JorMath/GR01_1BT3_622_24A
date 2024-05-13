@@ -13,14 +13,17 @@
 <body>
 <fieldset>
     <h1>Bienvenido, llene los siguientes datos para su registro</h1>
-    <form action="SvCliente" method="post">
+    <form action="SvUsuario" method="post">
         Nombre*: <br>
         <input type="text" name="nombre" required> <br>
         Apellido*: <br>
         <input type="text" name="apellido" required> <br>
         Clave*: <br>
         <input type="password" name="clave" required> <br>
-        <input type="submit" value="Subir">
+        <br>
+        <br>
+        <input type="checkbox" name="chkDesarrollador"> ¿Es desarrollador? <br>
+        <input type="submit" value="Subir"> <br>
     </form>
 </fieldset>
 

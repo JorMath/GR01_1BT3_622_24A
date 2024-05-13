@@ -17,20 +17,16 @@ public class Cliente {
     @JoinColumn(name = "idCompra")
     private List<Compra> compra;
 
-    public Cliente(int idCliente, String nombre, String apellido, String clave, List<Compra> compra) {
+    public Cliente(int idCliente, String nombre, String apellido,String clave, List<Compra> compra) {
         this.idCliente = idCliente;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.nombre = apellido;
         this.clave = clave;
         this.compra = compra;
     }
 
     public Cliente() {}
 
-
-    public void ingresar(){
-
-    }
 
 
     public int getIdCliente() {
@@ -53,13 +49,6 @@ public class Cliente {
         this.compra = compra;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getClave() {
         return clave;
@@ -67,5 +56,13 @@ public class Cliente {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 }

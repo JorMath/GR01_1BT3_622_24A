@@ -14,4 +14,8 @@ public class ControladoraCliente {
         return controladoraPersistencia.listarClientes();
     }
 
+
+    public boolean validarIngreso(String nombreEntrante, String claveEntrante, String chkOption) {
+        return controladoraPersistencia.validarClienteExistente(nombreEntrante, claveEntrante, chkOption);
+    }
 }

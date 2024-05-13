@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ControladoraPersistencia {
     ClienteJpaController clienteJPA = new ClienteJpaController();
+    DesarrolladorJpaController desarrolladorJpa = new DesarrolladorJpaController();
     VideojuegoJpaController videojuegoJpa = new VideojuegoJpaController();
     CompraJpaController compraJpa = new CompraJpaController();
 
@@ -41,5 +42,10 @@ public class ControladoraPersistencia {
         return compraJpa.findAllCompras();
     }
 
-
+    public boolean validarClienteExistente(String nombreEntrante, String claveEntrante, String chkOption) {
+        if(chkOption.equals("on")) {
+            return desarrolladorJpa.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
+        }
+        return clienteJPA.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
+    }
 }
