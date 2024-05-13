@@ -15,20 +15,20 @@ public class Cliente {
     private String clave;
     @OneToMany
     @JoinColumn(name = "idCompra")
-    private List<Compra> compra;
+    private List<Compra> compras;
 
     public Cliente(int idCliente, String nombre, String apellido,String clave, List<Compra> compra) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.nombre = apellido;
         this.clave = clave;
-        this.compra = compra;
+        this.compras = compra;
     }
 
     public Cliente() {}
 
     public void agregarCompra(Compra compra) {
-
+        compras.add(compra);
     }
 
     public int getIdCliente() {
@@ -43,12 +43,12 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public List<Compra> getCompra() {
-        return compra;
+    public List<Compra> getCompras() {
+        return compras;
     }
 
-    public void setCompra(List<Compra> compra) {
-        this.compra = compra;
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 
 

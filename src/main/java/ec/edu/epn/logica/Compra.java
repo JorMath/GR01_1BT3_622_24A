@@ -2,6 +2,7 @@ package ec.edu.epn.logica;
 
 import jakarta.persistence.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -25,10 +26,10 @@ public class Compra {
     public Compra() {
     }
 
-
-
-
-
+    public void comprar(Videojuego videojuego){
+        this.videojuego = videojuego;
+        this.fechaDeCompra = new Date();
+    }
 
     public int getIdCompra() {
         return idCompra;

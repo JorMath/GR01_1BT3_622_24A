@@ -29,6 +29,10 @@ public class Desarrollador {
 
     }
 
+    public void agregarVideoJuego(Videojuego videojuego) {
+        this.videojuegos = videojuegos;
+    }
+
     public int getIdDesarrollador() {
         return idDesarrollador;
     }
