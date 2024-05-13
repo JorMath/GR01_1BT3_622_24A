@@ -11,24 +11,25 @@ public class Compra {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idCompra;
 
+    @Temporal(TemporalType.DATE)
     private Date fechaDeCompra;
     @ManyToOne
     @JoinColumn(name = "idVideojuego")
     private Videojuego videojuego;
 
-    public Compra(int idCompra, Videojuego videojuego, Date fechaDeCompra) {
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
+    private Cliente cliente;
+
+    public Compra(int idCompra, Videojuego videojuego, Date fechaDeCompra, Cliente cliente) {
         this.idCompra = idCompra;
         this.videojuego = videojuego;
         this.fechaDeCompra = fechaDeCompra;
+        this.cliente = cliente;
     }
 
     public Compra() {
     }
-
-
-
-
-
 
     public int getIdCompra() {
         return idCompra;
@@ -48,5 +49,15 @@ public class Compra {
 
     public void setVideojuego(Videojuego videojuego) {
         this.videojuego = videojuego;
+    }
+
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
