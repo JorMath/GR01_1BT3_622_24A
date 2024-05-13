@@ -17,12 +17,7 @@ public class SvCliente extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        /*
-        List<Cliente> listaClientes = new ArrayList<>();
-        listaClientes = controladoraCliente.listarClientes();
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaClientes", listaClientes);
-        response.sendRedirect("mostrarClientes.jsp");*/
+
     }
 
     @Override

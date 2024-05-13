@@ -47,8 +47,8 @@ public class ControladoraPersistencia {
     }
 
     public boolean validarClienteExistente(String nombreEntrante, String claveEntrante, String chkOption) {
-        if(chkOption != null && chkOption == "on") {
-            return desarrolladorJpa.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
+        if(chkOption != null && chkOption.equals("on")) {
+            return desarrolladorJpa.findDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
 
         }
         return clienteJPA.findClienteByNameAndPassword(nombreEntrante, claveEntrante);

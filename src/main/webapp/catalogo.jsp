@@ -14,7 +14,7 @@
 </head>
 <body>
     <%
-        List<Videojuego> videojuegos = (List<Videojuego>) request.getSession().getAttribute("listaVideojuegos");
+        List<Videojuego> videojuegos = (List<Videojuego>) request.getSession().getAttribute("videojuegos");
         for (Videojuego videojuego : videojuegos) {
     %>
     <form action="SvVideojuego" method="post">
