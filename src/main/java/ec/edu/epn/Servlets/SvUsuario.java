@@ -28,7 +28,7 @@ public class SvUsuario extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String clave = request.getParameter("clave");
-        Boolean esDev = request.getParameter("chkDesarrollador") == "on"? true: false;
+        Boolean esDev = request.getParameter("chkDesarrollador").equals("on")? true: false;
         if (esDev) {
             Desarrollador desarrolladorNuevo = new Desarrollador();
             desarrolladorNuevo.setNombre(nombre);
