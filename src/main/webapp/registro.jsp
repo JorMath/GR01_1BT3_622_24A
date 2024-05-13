@@ -13,7 +13,7 @@
 <body>
 <fieldset>
     <h1>Bienvenido, llene los siguientes datos para su registro</h1>
-    <form action="SvUsuario" method="post">
+    <form action="SvControlRegistro" method="post">
         Nombre*: <br>
         <input type="text" name="nombre" required> <br>
         Apellido*: <br>
