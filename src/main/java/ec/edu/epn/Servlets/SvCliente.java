@@ -1,8 +1,6 @@
-package ec.edu.epn.servlets;
+package ec.edu.epn.Servlets;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;

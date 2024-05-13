@@ -17,9 +17,9 @@
         Nombre*: <br>
         <input type="text" name="nombre" required> <br>
         Apellido*: <br>
-        <input type="text" name="nombre" required> <br>
+        <input type="text" name="apellido" required> <br>
         Clave*: <br>
-        <input type="password" name="nombre" required> <br>
+        <input type="password" name="clave" required> <br>
         <input type="submit" value="Subir">
     </form>
 </fieldset>
