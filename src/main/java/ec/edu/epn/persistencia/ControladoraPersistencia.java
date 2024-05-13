@@ -2,6 +2,7 @@ package ec.edu.epn.persistencia;
 
 import ec.edu.epn.logica.Cliente;
 import ec.edu.epn.logica.Compra;
+import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.Videojuego;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public class ControladoraPersistencia {
     //Operacion create Cliente
     public void crearCliente(Cliente cliente) {
         clienteJPA.create(cliente);
+    }
+    public void crearDesarrollador(Desarrollador desarrollador) {
+        desarrolladorJpa.create(desarrollador);
     }
 
     //Operacion Read
@@ -43,8 +47,9 @@ public class ControladoraPersistencia {
     }
 
     public boolean validarClienteExistente(String nombreEntrante, String claveEntrante, String chkOption) {
-        if(chkOption.equals("on")) {
-            return desarrolladorJpa.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
+        if(chkOption != null && chkOption.equals("on")) {
+            return desarrolladorJpa.findDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
+
         }
         return clienteJPA.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
     }

@@ -6,23 +6,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import ec.edu.epn.logica.Cliente;
-import ec.edu.epn.logica.ControladoraCliente;
+import ec.edu.epn.logica.ControladoraUsuario;
 
 @WebServlet(name = "SvCliente", value = "/SvCliente")
 public class SvCliente extends HttpServlet {
-    ControladoraCliente controladoraCliente = new ControladoraCliente();
+    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        /*
-        List<Cliente> listaClientes = new ArrayList<>();
-        listaClientes = controladoraCliente.listarClientes();
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaClientes", listaClientes);
-        response.sendRedirect("mostrarClientes.jsp");*/
+
     }
 
     @Override
@@ -34,7 +29,7 @@ public class SvCliente extends HttpServlet {
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setClave(clave);
-        controladoraCliente.crearCliente(cliente); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
+        controladoraUsuario.crearCliente(cliente); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
         response.sendRedirect("index.jsp");
     }
 }

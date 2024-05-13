@@ -17,12 +17,16 @@ public class Desarrollador {
     @JoinColumn(name = "idCompra")
     private List<Videojuego> videojuegos;
 
-    public Desarrollador(String nombre, int idDesarrollador, List<Videojuego> videojuegos, String clave, String apellido) {
-        this.nombre = nombre;
+    public Desarrollador(int idDesarrollador, List<Videojuego> videojuegos, String clave, String apellido, String nombre) {
         this.idDesarrollador = idDesarrollador;
         this.videojuegos = videojuegos;
         this.clave = clave;
         this.apellido = apellido;
+        this.nombre = nombre;
+    }
+
+    public Desarrollador() {
+
     }
 
     public int getIdDesarrollador() {
