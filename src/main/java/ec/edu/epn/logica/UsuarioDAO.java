@@ -47,4 +47,8 @@ public class UsuarioDAO {
     public boolean existeDesarrollador(String nombre, String apellido, String contra) {
         return daoPersistencia.obtenerDesarrollador(nombre, contra) != null;
     }
+
+    public boolean existeCliente(String nombre, String apellido, String contra) {
+        return daoPersistencia.obtenerCliente(nombre, contra) != null;
+    }
 }
