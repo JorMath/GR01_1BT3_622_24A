@@ -1,5 +1,6 @@
 package ec.edu.epn.persistencia;
 
+import ec.edu.epn.logica.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -88,7 +89,7 @@ public class VideojuegoDTO {
         }
     }
 
-    public boolean findVideojuegoByName(String tituloABuscar) {
+    public boolean existVideojuegoByName(String tituloABuscar) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloABuscar");
@@ -97,6 +98,24 @@ public class VideojuegoDTO {
                 return true;
             }
             return false;
+        } finally {
+            em.close();
+        }
+    }
+
+    public Videojuego findVideojuegoByName(String nombre) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :name");
+            query.setParameter("name", nombre);
+            List<Videojuego> resultList = query.getResultList();
+            if (resultList.size() > 0) {
+                return resultList.get(0);
+            } else {
+                return null;
+            }
+
+
         } finally {
             em.close();
         }

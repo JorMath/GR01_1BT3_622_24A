@@ -63,7 +63,13 @@ public class DesarrolladorDTO {
             query.setParameter("name", nombreEntrante);
             query.setParameter("password", claveEntrante);
 
-            return (Desarrollador) query.getResultList().get(0);
+            List<Desarrollador> resultList = query.getResultList();
+            if (resultList.size() > 0) {
+                return resultList.get(0);
+            } else {
+                return null;
+            }
+
         } finally {
             em.close();
         }

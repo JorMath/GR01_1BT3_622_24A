@@ -57,4 +57,8 @@ public class UsuarioDAO {
     public void setDAOPersistencia(DAOPersistencia daoPersistencia) {
         this.daoPersistencia = daoPersistencia;
     }
+
+    public void eliminarCliente(String name, String password) {
+        daoPersistencia.eliminarCliente(daoPersistencia.obtenerCliente(name,password).getIdCliente());
+    }
 }

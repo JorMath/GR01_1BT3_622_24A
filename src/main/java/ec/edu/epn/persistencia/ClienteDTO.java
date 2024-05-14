@@ -1,5 +1,6 @@
 package ec.edu.epn.persistencia;
 
+import ec.edu.epn.logica.Desarrollador;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -109,7 +110,13 @@ public class ClienteDTO implements Serializable {
             Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.nombre = :name AND c.clave = :password");
             query.setParameter("name", name);
             query.setParameter("password", password);
-            return (Cliente) query.getResultList().get(0);
+            List<Cliente> resultList = query.getResultList();
+            if (resultList.size() > 0) {
+                return resultList.get(0);
+            } else {
+                return null;
+            }
+
 
         } finally {
             em.close();
