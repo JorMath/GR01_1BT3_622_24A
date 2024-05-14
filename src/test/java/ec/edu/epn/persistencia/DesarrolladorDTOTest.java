@@ -1,8 +1,7 @@
-package ec.edu.epn.logica;
+package ec.edu.epn.persistencia;
 
-import ec.edu.epn.persistencia.DesarrolladorDTO;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import ec.edu.epn.logica.Desarrollador;
+import ec.edu.epn.logica.UsuarioDAO;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
