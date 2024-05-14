@@ -1,7 +1,9 @@
 package ec.edu.epn.logica;
 
 import ec.edu.epn.persistencia.DAOPersistencia;
+import ec.edu.epn.persistencia.DesarrolladorDTO;
 
+import java.util.Collection;
 import java.util.List;
 
 public class UsuarioDAO {
@@ -36,5 +38,13 @@ public class UsuarioDAO {
 
     public Desarrollador obtenerDesarrollador(String nombreEntrante, String claveEntrante) {
         return daoPersistencia.obtenerDesarrollador(nombreEntrante, claveEntrante);
+    }
+
+    public List<Desarrollador> listarDesarrolladores() {
+        return daoPersistencia.obtenerDesarrolladores();
+    }
+
+    public boolean existeDesarrollador(String nombre, String apellido, String contra) {
+        return daoPersistencia.obtenerDesarrollador(nombre, contra) != null;
     }
 }
