@@ -51,4 +51,8 @@ public class UsuarioDAO {
     public boolean existeCliente(String nombre, String apellido, String contra) {
         return daoPersistencia.obtenerCliente(nombre, contra) != null;
     }
+
+    public void eliminarCliente(int idCliente) {
+        daoPersistencia.eliminarCliente(idCliente);
+    }
 }
