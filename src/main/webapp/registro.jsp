@@ -23,7 +23,7 @@
         <br>
         <br>
         <input type="checkbox" name="chkDesarrollador"> ¿Es desarrollador? <br>
-        <input type="submit" value="Subir"> <br>
+Mid        <input type="submit" value="Registrarse"> <br>
     </form>
 </fieldset>
 
