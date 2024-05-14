@@ -27,6 +27,12 @@ public class Cliente {
 
     public Cliente() {}
 
+    public Cliente(String nombre, String apellido, String clave) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.clave = clave;
+    }
+
     public void agregarCompra(Compra compra) {
 
     }
