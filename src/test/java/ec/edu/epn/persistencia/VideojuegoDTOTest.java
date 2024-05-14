@@ -6,11 +6,16 @@ import ec.edu.epn.logica.Videojuego;
 import ec.edu.epn.logica.VideojuegoDAO;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class VideojuegoDTOTest {
     VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
     DesarrolladorDTO desarrolladorDTO = new DesarrolladorDTO();
@@ -31,6 +36,7 @@ public class VideojuegoDTOTest {
     }
 
     @Test
+    @Order(1)
     public void given_datos_when_desarrollador_registra_then_videojuego_dado_de_alta(){
         //Prueba para observar si registra en la base de datos
         System.out.println("Prueba videojuego existe");
@@ -42,5 +48,14 @@ public class VideojuegoDTOTest {
         videojuegoDAO.crearVideojuego(videojuego);
 
         assertTrue(videojuegoDAO.obtenerVideojuegoPorNombre("GTA V"));
+    }
+
+    @Test
+    @Order(2)
+    public void given_datos_when_usuario_elimina_then_videojuego_dado_de_baja(){
+        System.out.println("Prueba2");
+        videojuegoDAO.eliminarVideojuego("GTA V");
+
+        assertFalse(videojuegoDAO.existeVideojuego("GTA V"));
     }
 }
