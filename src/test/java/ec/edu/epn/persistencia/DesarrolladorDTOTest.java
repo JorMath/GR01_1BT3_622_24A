@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 public class DesarrolladorDTOTest {
     UsuarioDAO usuarioDAO = new UsuarioDAO();
+    DesarrolladorDTO dto = new DesarrolladorDTO();
 
     @Test
     public void given_datos_when_usuario_registra_then_desarrollador_dado_de_alta(){
@@ -24,5 +25,14 @@ public class DesarrolladorDTOTest {
         //desarrolladorDTO.create(desarrollador);
 
         assertTrue(usuarioDAO.existeDesarrollador("Jorge", "Zambrano", "1234"));
+    }
+
+    @Test
+    public void given_datos_when_usuario_elimina_then_desarrollador_dado_de_baja(){
+        System.out.println("Prueba2");
+        usuarioDAO.eliminarDesarrollador("Jorge", "1234");
+
+
+        assertFalse(usuarioDAO.existeDesarrollador("Jorge", "Zambrano", "1234"));
     }
 }

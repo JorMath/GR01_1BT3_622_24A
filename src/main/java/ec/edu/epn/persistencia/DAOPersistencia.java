@@ -77,4 +77,9 @@ public class DAOPersistencia {
     public boolean obtenerVideojuego(String tituloABuscar) {
         return videojuegoDTO.findVideojuegoByName(tituloABuscar);
     }
+
+    public void eliminarDesarrollador(String name, String contraseña) {
+        System.out.println();
+        desarrolladorDTO.delete(obtenerDesarrollador(name,contraseña).getIdDesarrollador());
+    }
 }

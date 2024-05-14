@@ -4,6 +4,7 @@ import ec.edu.epn.logica.Cliente;
 import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.UsuarioDAO;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
@@ -24,5 +25,26 @@ class ClienteDTOTest {
         usuarioDAO.crearCliente(cliente);
 
         assertTrue(usuarioDAO.existeCliente("Jorge", "Zambrano", "1234"));
+    }
+
+    @Test
+    public void testCrearCliente() {
+        // Crear un mock de Cliente
+        Cliente clienteMock = Mockito.mock(Cliente.class);
+
+        // Crear un mock de DAOPersistencia
+        DAOPersistencia daoPersistenciaMock = Mockito.mock(DAOPersistencia.class);
+
+        // Crear una instancia de UsuarioDAO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        // Establecer el mock de DAOPersistencia en UsuarioDAO
+        usuarioDAO.setDAOPersistencia(daoPersistenciaMock);
+
+        // Llamar al método que queremos probar
+        usuarioDAO.crearCliente(clienteMock);
+
+        // Verificar que el método crearCliente de DAOPersistencia fue llamado con el clienteMock
+        Mockito.verify(daoPersistenciaMock).crearCliente(clienteMock);
     }
 }
