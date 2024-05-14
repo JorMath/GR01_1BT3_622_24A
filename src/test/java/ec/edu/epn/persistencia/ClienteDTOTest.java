@@ -47,4 +47,27 @@ class ClienteDTOTest {
         // Verificar que el método crearCliente de DAOPersistencia fue llamado con el clienteMock
         Mockito.verify(daoPersistenciaMock).crearCliente(clienteMock);
     }
+
+    @Test
+    public void given_datos_and_check_on_when_usuario_existe_then_ingresar_a_catalogo() {
+        // Crear mocks
+        String nombreEntranteMock = "Jorge";
+        String claveEntranteMock = "Zambrano";
+        String chkOptionMock = "on";
+
+        DAOPersistencia daoPersistenciaMock = Mockito.mock(DAOPersistencia.class);
+        usuarioDAO.setDAOPersistencia(daoPersistenciaMock);
+
+        // Definir el comportamiento del mock
+        Mockito.when(daoPersistenciaMock.validarClienteExistente(nombreEntranteMock, claveEntranteMock, chkOptionMock)).thenReturn(true);
+
+        // Llamar al método que queremos probar
+        boolean existe = usuarioDAO.existeUsuario(nombreEntranteMock, claveEntranteMock, chkOptionMock);
+
+        // Verificar el resultado
+        assert(existe);
+
+        // Verificar que el método validarClienteExistente de DAOPersistencia fue llamado con los argumentos correctos
+        Mockito.verify(daoPersistenciaMock).validarClienteExistente(nombreEntranteMock, claveEntranteMock, chkOptionMock);
+    }
 }
