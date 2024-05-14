@@ -14,7 +14,7 @@ public class Cliente {
     private String apellido;
     private String clave;
     @OneToMany
-    @JoinColumn(name = "idCompra")
+    @JoinColumn(name = "idCliente")
     private List<Compra> compra;
 
     public Cliente(int idCliente, String nombre, String apellido,String clave, List<Compra> compra) {
