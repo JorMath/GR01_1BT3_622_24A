@@ -1,18 +1,14 @@
 package ec.edu.epn.Servlets;
 
 import ec.edu.epn.logica.ControladoraUsuario;
-import ec.edu.epn.logica.Videojuego;
 import ec.edu.epn.persistencia.ControladoraPersistencia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet(name = "SvControlRegistro", value = "/SvControlRegistro")
 public class SvControlRegistro extends HttpServlet {
@@ -30,8 +26,8 @@ public class SvControlRegistro extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String chkOption = request.getParameter("chkDesarrollador");
         if(esDesarrollador(chkOption)){
-            SvDesarrollo svDesarrollo = new SvDesarrollo();
-            svDesarrollo.doPost(request, response);
+            SvDesarrollador svDesarrollador = new SvDesarrollador();
+            svDesarrollador.doPost(request, response);
         }else{
             SvCliente svCliente = new SvCliente();
             svCliente.doPost(request, response);
