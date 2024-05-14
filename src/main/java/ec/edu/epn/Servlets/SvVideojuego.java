@@ -2,6 +2,7 @@ package ec.edu.epn.Servlets;
 
 import ec.edu.epn.logica.Cliente;
 import ec.edu.epn.logica.ControladoraUsuario;
+import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.Videojuego;
 import ec.edu.epn.persistencia.ControladoraPersistencia;
 import jakarta.servlet.ServletException;
@@ -9,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 @WebServlet(name = "SvVideojuego", value = "/SvVideojuego")
@@ -28,10 +30,13 @@ public class SvVideojuego extends HttpServlet {
         String titulo = request.getParameter("tituloVideojuego");
         String descripcion = request.getParameter("descripcionVideojuego");
         double precio = Double.parseDouble(request.getParameter("precioVideojuego"));
+        Desarrollador desarrollador = (Desarrollador) request.getSession().getAttribute("desarrollador");
+
         Videojuego videojuego = new Videojuego();
         videojuego.setTitulo(titulo);
         videojuego.setDescripcion(descripcion);
         videojuego.setPrecio(precio);
+        videojuego.setDesarrollador(desarrollador);
         controladoraPersistencia.crearVideojuego(videojuego);
         response.sendRedirect("index.jsp");
     }
