@@ -1,5 +1,6 @@
 package ec.edu.epn.persistencia;
 
+import ec.edu.epn.logica.Cliente;
 import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.Videojuego;
 import jakarta.persistence.EntityManager;
@@ -78,5 +79,22 @@ public class DesarrolladorDTO {
             em.close();
         }
 
+    }
+
+    public void delete(int id) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Desarrollador desarrollador = em.find(Desarrollador.class, id);
+            if (desarrollador != null) {
+                em.remove(desarrollador);
+            }
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 }

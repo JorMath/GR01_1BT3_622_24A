@@ -18,4 +18,8 @@ public class VideojuegoDAO {
         return daoPersistencia.obtenerVideojuego(idVideojuego);
 
     }
+
+    public boolean obtenerVideojuegoPorNombre(String tituloABuscar) {
+        return daoPersistencia.obtenerVideojuego(tituloABuscar);
+    }
 }

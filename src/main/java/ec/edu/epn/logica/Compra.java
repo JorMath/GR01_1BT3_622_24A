@@ -13,6 +13,7 @@ public class Compra {
 
     @Temporal(TemporalType.DATE)
     private Date fechaDeCompra;
+    private double precioTotal;
     @ManyToOne
     @JoinColumn(name = "idVideojuego")
     private Videojuego videojuego;
@@ -21,11 +22,12 @@ public class Compra {
     @JoinColumn(name = "idCliente")
     private Cliente cliente;
 
-    public Compra(int idCompra, Videojuego videojuego, Date fechaDeCompra, Cliente cliente) {
+    public Compra(int idCompra, Videojuego videojuego, Date fechaDeCompra, Cliente cliente, double precioTotal) {
         this.idCompra = idCompra;
         this.videojuego = videojuego;
         this.fechaDeCompra = fechaDeCompra;
         this.cliente = cliente;
+        this.precioTotal = precioTotal;
     }
 
     public Compra() {
@@ -59,5 +61,17 @@ public class Compra {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    public double calcularCompraConIva() {
+        return this.videojuego.getPrecio() * 1.15;
     }
 }

@@ -87,4 +87,18 @@ public class VideojuegoDTO {
             em.close();
         }
     }
+
+    public boolean findVideojuegoByName(String tituloABuscar) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloABuscar");
+            query.setParameter("tituloABuscar", tituloABuscar);
+            if(query.getResultList().size() > 0){
+                return true;
+            }
+            return false;
+        } finally {
+            em.close();
+        }
+    }
 }

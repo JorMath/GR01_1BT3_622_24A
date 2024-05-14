@@ -73,4 +73,12 @@ public class DAOPersistencia {
     public List<Desarrollador> obtenerDesarrolladores() {
         return desarrolladorDTO.obtenerTodosLosDesarrolladores();
     }
+
+    public boolean obtenerVideojuego(String tituloABuscar) {
+        return videojuegoDTO.findVideojuegoByName(tituloABuscar);
+    }
+
+    public void eliminarCliente(int idCliente) {
+        clienteDTO.delete(idCliente);
+    }
 }
