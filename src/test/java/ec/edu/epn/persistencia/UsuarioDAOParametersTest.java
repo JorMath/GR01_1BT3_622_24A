@@ -27,9 +27,9 @@ public class UsuarioDAOParametersTest {
 
     private static Object[] crearUserDAO(String nombre, String apellido, String clave) {
         Desarrollador desarrollador = new Desarrollador();
-        desarrollador.setNombre("Jorge");
-        desarrollador.setApellido("Zambrano");
-        desarrollador.setClave("1234");
+        desarrollador.setNombre(nombre);
+        desarrollador.setApellido(apellido);
+        desarrollador.setClave(clave);
         desarrollador.setVideojuegos(new ArrayList<>());
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.crearDesarrollador(desarrollador);
@@ -44,7 +44,7 @@ public class UsuarioDAOParametersTest {
     public void given_data_when_user_register_then_dev_has_been_registered(){
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         //Prueba para observar si registra en la base de datos
-        System.out.println("Prueba1");
+        System.out.println("Prueba Parametrizada para registrar un desarrollador");
         Desarrollador desarrollador = new Desarrollador();
         desarrollador.setNombre("Jorge");
         desarrollador.setApellido("Zambrano");
