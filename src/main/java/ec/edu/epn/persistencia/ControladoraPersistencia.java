@@ -49,8 +49,24 @@ public class ControladoraPersistencia {
     public boolean validarClienteExistente(String nombreEntrante, String claveEntrante, String chkOption) {
         if(chkOption != null && chkOption.equals("on")) {
             return desarrolladorJpa.findDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
-
         }
-        return clienteJPA.findClienteByNameAndPassword(nombreEntrante, claveEntrante);
+        return clienteJPA.existClientWithNameAndPassword(nombreEntrante, claveEntrante);
+    }
+
+    public int obtenerIdUsuario(String nombreEntrante, String claveEntrante) {
+        Cliente cliente = clienteJPA.findClientWithNameAndPassword(nombreEntrante, claveEntrante);
+        return cliente.getIdCliente();
+    }
+
+    public Cliente obtenerCliente(String nombreEntrante, String claveEntrante) {
+        return clienteJPA.findClientWithNameAndPassword(nombreEntrante, claveEntrante);
+    }
+
+    public Videojuego obtenerVideojuego(int idVideojuego) {
+        return videojuegoJpa.findVideojuego(idVideojuego);
+    }
+
+    public Desarrollador obtenerDesarrollador(String nombreEntrante, String claveEntrante) {
+        return desarrolladorJpa.obtenerDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
     }
 }

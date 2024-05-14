@@ -14,4 +14,8 @@ public class ControladoraVideojuego {
         return controladoraPersistencia.listarVideojuegos();
     }
 
+    public Videojuego obtenerVideojuego(int idVideojuego) {
+        return controladoraPersistencia.obtenerVideojuego(idVideojuego);
+
+    }
 }

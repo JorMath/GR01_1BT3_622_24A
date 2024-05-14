@@ -51,4 +51,17 @@ public class DesarrolladorJpaController {
             }
         }
     }
+
+    public Desarrollador obtenerDesarrolladorByNameAndPassword(String nombreEntrante, String claveEntrante) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT d FROM Desarrollador d WHERE d.nombre = :name AND d.clave = :password");
+            query.setParameter("name", nombreEntrante);
+            query.setParameter("password", claveEntrante);
+
+            return (Desarrollador) query.getResultList().get(0);
+        } finally {
+            em.close();
+        }
+    }
 }

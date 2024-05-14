@@ -18,7 +18,23 @@ public class ControladoraUsuario {
     }
 
 
-    public boolean validarIngreso(String nombreEntrante, String claveEntrante, String chkOption) {
+    public boolean existeUsuario(String nombreEntrante, String claveEntrante, String chkOption) {
         return controladoraPersistencia.validarClienteExistente(nombreEntrante, claveEntrante, chkOption);
+    }
+
+    public int obtenerIdUsuario(String nombreEntrante, String claveEntrante) {
+        return controladoraPersistencia.obtenerIdUsuario(nombreEntrante, claveEntrante);
+    }
+
+    public Cliente obtenerCliente(String nombreEntrante, String claveEntrante) {
+        return controladoraPersistencia.obtenerCliente(nombreEntrante, claveEntrante);
+    }
+
+    public void crearCompra(Compra compra) {
+        controladoraPersistencia.crearCompra(compra);
+    }
+
+    public Desarrollador obtenerDesarrollador(String nombreEntrante, String claveEntrante) {
+        return controladoraPersistencia.obtenerDesarrollador(nombreEntrante, claveEntrante);
     }
 }

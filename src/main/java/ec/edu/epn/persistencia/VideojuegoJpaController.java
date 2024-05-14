@@ -9,6 +9,7 @@ import ec.edu.epn.logica.Videojuego;
 
 import java.util.List;
 
+
 public class VideojuegoJpaController {
     public VideojuegoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -69,10 +70,10 @@ public class VideojuegoJpaController {
         }
     }
 
-    public Compra findVideojuego(int id) {
+    public Videojuego findVideojuego(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Compra.class, id);
+            return em.find(Videojuego.class, id);
         } finally {
             em.close();
         }
