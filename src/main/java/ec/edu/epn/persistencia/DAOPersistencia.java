@@ -48,7 +48,7 @@ public class DAOPersistencia {
 
     public boolean validarClienteExistente(String nombreEntrante, String claveEntrante, String chkOption) {
         if(chkOption != null && chkOption.equals("on")) {
-            return desarrolladorDTO.findDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
+            return desarrolladorDTO.existDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
         }
         return clienteDTO.existClientWithNameAndPassword(nombreEntrante, claveEntrante);
     }
@@ -68,5 +68,9 @@ public class DAOPersistencia {
 
     public Desarrollador obtenerDesarrollador(String nombreEntrante, String claveEntrante) {
         return desarrolladorDTO.obtenerDesarrolladorByNameAndPassword(nombreEntrante, claveEntrante);
+    }
+
+    public List<Desarrollador> obtenerDesarrolladores() {
+        return desarrolladorDTO.obtenerTodosLosDesarrolladores();
     }
 }
