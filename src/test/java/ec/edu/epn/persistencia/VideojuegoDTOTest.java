@@ -5,7 +5,7 @@ import ec.edu.epn.logica.UsuarioDAO;
 import ec.edu.epn.logica.Videojuego;
 import ec.edu.epn.logica.VideojuegoDAO;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
