@@ -3,15 +3,23 @@ package ec.edu.epn.logica;
 import ec.edu.epn.persistencia.VideojuegoJpaController;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Videojuego {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idVideojuego;
+
     private String titulo;
     private String descripcion;
     private double precio;
+
+    @ManyToOne
+    @JoinColumn(name = "idDesarrollador")
+    private Desarrollador desarrollador;
+
 
     public Videojuego(int idVideojuego, String descripcion, String titulo, double precio) {
         this.idVideojuego = idVideojuego;
@@ -49,6 +57,17 @@ public class Videojuego {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public void setIdVideojuego(int idVideojuego) {
+        this.idVideojuego = idVideojuego;
+    }
+    public Desarrollador getDesarrollador() {
+        return desarrollador;
+    }
+
+    public void setDesarrollador(Desarrollador desarrollador) {
+        this.desarrollador = desarrollador;
     }
 
 }

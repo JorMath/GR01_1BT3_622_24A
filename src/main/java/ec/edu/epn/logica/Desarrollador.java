@@ -14,7 +14,7 @@ public class Desarrollador {
     private String apellido;
     private String clave;
     @OneToMany
-    @JoinColumn(name = "idCompra")
+    @JoinColumn(name = "idDesarrollador")
     private List<Videojuego> videojuegos;
 
     public Desarrollador(int idDesarrollador, List<Videojuego> videojuegos, String clave, String apellido, String nombre) {
