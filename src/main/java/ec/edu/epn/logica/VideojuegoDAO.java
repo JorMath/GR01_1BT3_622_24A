@@ -22,4 +22,12 @@ public class VideojuegoDAO {
     public boolean obtenerVideojuegoPorNombre(String tituloABuscar) {
         return daoPersistencia.obtenerVideojuego(tituloABuscar);
     }
+
+    public void eliminarVideojuego(String nombre) {
+        daoPersistencia.eliminarJuego(nombre);
+    }
+
+    public boolean existeVideojuego(String nombre) {
+        return daoPersistencia.obtenerVideojuego(nombre);
+    }
 }

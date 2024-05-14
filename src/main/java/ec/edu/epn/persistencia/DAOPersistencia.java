@@ -75,7 +75,7 @@ public class DAOPersistencia {
     }
 
     public boolean obtenerVideojuego(String tituloABuscar) {
-        return videojuegoDTO.findVideojuegoByName(tituloABuscar);
+        return videojuegoDTO.existVideojuegoByName(tituloABuscar);
     }
 
     public void eliminarCliente(int idCliente) {
@@ -85,5 +85,9 @@ public class DAOPersistencia {
     public void eliminarDesarrollador(String name, String contraseña) {
         System.out.println(obtenerDesarrollador(name,contraseña).getIdDesarrollador());
         desarrolladorDTO.delete(obtenerDesarrollador(name,contraseña).getIdDesarrollador());
+    }
+
+    public void eliminarJuego(String nombre) {
+        videojuegoDTO.delete(videojuegoDTO.findVideojuegoByName(nombre).getIdVideojuego());
     }
 }
