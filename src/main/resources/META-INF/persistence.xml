@@ -7,6 +7,7 @@
         <class>ec.edu.epn.logica.Cliente</class>
         <class>ec.edu.epn.logica.Videojuego</class>
         <class>ec.edu.epn.logica.Compra</class>
+        <class>ec.edu.epn.logica.Desarrollador</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/TiendaVideojuegos"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
