@@ -81,4 +81,9 @@ public class DAOPersistencia {
     public void eliminarCliente(int idCliente) {
         clienteDTO.delete(idCliente);
     }
+
+    public void eliminarDesarrollador(String name, String contraseña) {
+        System.out.println(obtenerDesarrollador(name,contraseña).getIdDesarrollador());
+        desarrolladorDTO.delete(obtenerDesarrollador(name,contraseña).getIdDesarrollador());
+    }
 }
