@@ -26,8 +26,6 @@ public class SvCompra extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println(request.getParameter("idVideojuego"));
-
         int idVideojuego = Integer.parseInt(request.getParameter("idVideojuego"));
 
         Videojuego videojuego = controladoraVideojuego.obtenerVideojuego(idVideojuego);
