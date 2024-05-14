@@ -2,6 +2,7 @@ package ec.edu.epn.logica;
 
 import ec.edu.epn.persistencia.DAOPersistencia;
 
+import java.util.Date;
 import java.util.List;
 
 public class UsuarioDAO {
@@ -60,5 +61,9 @@ public class UsuarioDAO {
 
     public void eliminarCliente(String name, String password) {
         daoPersistencia.eliminarCliente(daoPersistencia.obtenerCliente(name,password).getIdCliente());
+    }
+
+    public boolean existeCompra(String idClient, Date fecha) {
+        return daoPersistencia.obtenerCompra(idClient, fecha);
     }
 }

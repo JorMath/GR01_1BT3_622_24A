@@ -5,6 +5,7 @@ import ec.edu.epn.logica.Compra;
 import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.Videojuego;
 
+import java.util.Date;
 import java.util.List;
 
 public class DAOPersistencia {
@@ -89,5 +90,9 @@ public class DAOPersistencia {
 
     public void eliminarJuego(String nombre) {
         videojuegoDTO.delete(videojuegoDTO.findVideojuegoByName(nombre).getIdVideojuego());
+    }
+
+    public boolean obtenerCompra(String tituloVideojuego, Date idCliente) {
+        return compraDTO.findCompraWithClientAndDate(tituloVideojuego, idCliente);
     }
 }

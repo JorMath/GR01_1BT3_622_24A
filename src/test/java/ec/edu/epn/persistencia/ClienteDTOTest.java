@@ -21,7 +21,7 @@ class ClienteDTOTest {
 
     @Test
     @Order(1)
-    public void given_datos_when_usuario_registra_then_desarrollador_dado_de_alta(){
+    public void given_datos_when_usuario_registra_then_cliente_dado_de_alta(){
         //Prueba para observar si registra en la base de datos
         System.out.println("Prueba1");
         Cliente cliente = new Cliente();
@@ -35,7 +35,7 @@ class ClienteDTOTest {
 
     @Test
     @Order(2)
-    public void given_datos_when_usuario_elimina_then_desarrollador_dado_de_baja(){
+    public void given_datos_when_usuario_elimina_then_usuario_dado_de_baja(){
         System.out.println("Prueba2");
         usuarioDAO.eliminarCliente("Jorge","1234");
 
@@ -43,7 +43,7 @@ class ClienteDTOTest {
     }
 
     @Test
-    public void given_datos_when_usuario_registra_then_desarrollador_dado_de_alta_with_mockito() {
+    public void given_datos_when_usuario_registra_then_cliente_dado_de_alta_with_mockito() {
         System.out.println("Prueba1 Mockito");
         // Crear un mock de Cliente
         Cliente clienteMock = Mockito.mock(Cliente.class);
