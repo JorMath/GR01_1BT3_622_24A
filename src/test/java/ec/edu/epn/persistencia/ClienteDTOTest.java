@@ -25,4 +25,9 @@ class ClienteDTOTest {
 
         assertTrue(usuarioDAO.existeCliente("Jorge", "Zambrano", "1234"));
     }
+    @Test
+    public void given_datos_when_cliente_elimina_then_dado_de_baje(){
+        int idClienteEliminar = usuarioDAO.obtenerCliente("Jorge", "1234").getIdCliente();
+        usuarioDAO.eliminarCliente(idClienteEliminar);
+    }
 }
