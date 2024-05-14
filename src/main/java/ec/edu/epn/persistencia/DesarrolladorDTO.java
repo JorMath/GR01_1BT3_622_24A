@@ -1,15 +1,19 @@
 package ec.edu.epn.persistencia;
 
 import ec.edu.epn.logica.Desarrollador;
+import ec.edu.epn.logica.Videojuego;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
+import java.util.List;
+
 public class DesarrolladorDTO {
     public DesarrolladorDTO(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -20,14 +24,15 @@ public class DesarrolladorDTO {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }
-    public boolean findDesarrolladorByNameAndPassword(String name, String password) {
+
+    public boolean existDesarrolladorByNameAndPassword(String name, String password) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("SELECT d FROM Desarrollador d WHERE d.nombre = :name AND d.clave = :password");
             query.setParameter("name", name);
             query.setParameter("password", password);
 
-            if(query.getResultList().size() > 0){
+            if (query.getResultList().size() > 0) {
                 return true;
             }
             return false;
@@ -61,5 +66,17 @@ public class DesarrolladorDTO {
         } finally {
             em.close();
         }
+    }
+
+    public List<Desarrollador> obtenerTodosLosDesarrolladores() {
+
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT d FROM Desarrollador d");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+
     }
 }
