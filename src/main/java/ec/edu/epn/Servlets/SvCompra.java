@@ -4,17 +4,15 @@ import java.io.*;
 import java.util.Date;
 
 import ec.edu.epn.logica.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "SvCompra", value = "/SvCompra")
 public class SvCompra extends HttpServlet {
-    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-    ControladoraVideojuego controladoraVideojuego = new ControladoraVideojuego();
+    VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -28,7 +26,7 @@ public class SvCompra extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int idVideojuego = Integer.parseInt(request.getParameter("idVideojuego"));
 
-        Videojuego videojuego = controladoraVideojuego.obtenerVideojuego(idVideojuego);
+        Videojuego videojuego = videojuegoDAO.obtenerVideojuego(idVideojuego);
 
         Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
 
@@ -40,7 +38,7 @@ public class SvCompra extends HttpServlet {
         compra.setVideojuego(videojuego);
         compra.setFechaDeCompra(fecha);
 
-        controladoraUsuario.crearCompra(compra); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
+        usuarioDAO.crearCompra(compra); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
         response.sendRedirect("index.jsp");
     }
 }

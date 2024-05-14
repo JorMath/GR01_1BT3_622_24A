@@ -8,8 +8,8 @@ import ec.edu.epn.logica.Compra;
 
 import java.util.List;
 
-public class CompraJpaController {
-    public CompraJpaController(EntityManagerFactory emf) {
+public class CompraDTO {
+    public CompraDTO(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -18,7 +18,7 @@ public class CompraJpaController {
         return emf.createEntityManager();
     }
 
-    public CompraJpaController() {
+    public CompraDTO() {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }

@@ -6,11 +6,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import ec.edu.epn.logica.Cliente;
-import ec.edu.epn.logica.ControladoraUsuario;
+import ec.edu.epn.logica.UsuarioDAO;
 
 @WebServlet(name = "SvCliente", value = "/SvCliente")
 public class SvCliente extends HttpServlet {
-    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -29,7 +29,7 @@ public class SvCliente extends HttpServlet {
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setClave(clave);
-        controladoraUsuario.crearCliente(cliente); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
+        usuarioDAO.crearCliente(cliente); //le pasamos a la controladora de la logica, para que despues pase a la de la persistencia y finalmente a la BD
         response.sendRedirect("index.jsp");
     }
 }

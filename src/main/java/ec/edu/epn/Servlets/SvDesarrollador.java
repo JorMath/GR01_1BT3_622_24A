@@ -1,7 +1,7 @@
 package ec.edu.epn.Servlets;
 
 import ec.edu.epn.logica.Desarrollador;
-import ec.edu.epn.logica.ControladoraUsuario;
+import ec.edu.epn.logica.UsuarioDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "SvDesarrollador", value = "/SvDesarrollador")
 public class SvDesarrollador extends HttpServlet {
-    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -31,7 +31,7 @@ public class SvDesarrollador extends HttpServlet {
         desarrolladorNuevo.setNombre(nombre);
         desarrolladorNuevo.setApellido(apellido);
         desarrolladorNuevo.setClave(clave);
-        controladoraUsuario.crearDesarrollador(desarrolladorNuevo);
+        usuarioDAO.crearDesarrollador(desarrolladorNuevo);
 
         response.sendRedirect("index.jsp");
 

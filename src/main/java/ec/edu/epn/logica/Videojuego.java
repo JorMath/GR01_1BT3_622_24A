@@ -1,9 +1,6 @@
 package ec.edu.epn.logica;
 
-import ec.edu.epn.persistencia.VideojuegoJpaController;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table

@@ -9,8 +9,8 @@ import ec.edu.epn.logica.Cliente;
 import java.io.Serializable;
 import java.util.List;
 
-public class ClienteJpaController implements Serializable {
-    public ClienteJpaController(EntityManagerFactory emf) {
+public class ClienteDTO implements Serializable {
+    public ClienteDTO(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -19,7 +19,7 @@ public class ClienteJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public ClienteJpaController() {
+    public ClienteDTO() {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }

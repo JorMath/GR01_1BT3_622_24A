@@ -4,14 +4,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import ec.edu.epn.logica.Compra;
 import ec.edu.epn.logica.Videojuego;
 
 import java.util.List;
 
 
-public class VideojuegoJpaController {
-    public VideojuegoJpaController(EntityManagerFactory emf) {
+public class VideojuegoDTO {
+    public VideojuegoDTO(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -20,7 +19,7 @@ public class VideojuegoJpaController {
         return emf.createEntityManager();
     }
 
-    public VideojuegoJpaController() {
+    public VideojuegoDTO() {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }

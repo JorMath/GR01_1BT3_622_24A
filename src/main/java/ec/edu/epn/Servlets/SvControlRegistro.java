@@ -1,7 +1,7 @@
 package ec.edu.epn.Servlets;
 
-import ec.edu.epn.logica.ControladoraUsuario;
-import ec.edu.epn.persistencia.ControladoraPersistencia;
+import ec.edu.epn.logica.UsuarioDAO;
+import ec.edu.epn.persistencia.DAOPersistencia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,8 +12,8 @@ import java.io.IOException;
 
 @WebServlet(name = "SvControlRegistro", value = "/SvControlRegistro")
 public class SvControlRegistro extends HttpServlet {
-    ControladoraUsuario controladoraUsuario = new ControladoraUsuario();
-    ControladoraPersistencia controladoraPersistencia = new ControladoraPersistencia();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    DAOPersistencia daoPersistencia = new DAOPersistencia();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }

@@ -6,10 +6,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
-import java.util.List;
-
-public class DesarrolladorJpaController {
-    public DesarrolladorJpaController(EntityManagerFactory emf) {
+public class DesarrolladorDTO {
+    public DesarrolladorDTO(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -18,7 +16,7 @@ public class DesarrolladorJpaController {
         return emf.createEntityManager();
     }
 
-    public DesarrolladorJpaController() {
+    public DesarrolladorDTO() {
         emf = Persistence.createEntityManagerFactory("GR01_1BT3_622_24A_PU");
         this.emf = emf;
     }

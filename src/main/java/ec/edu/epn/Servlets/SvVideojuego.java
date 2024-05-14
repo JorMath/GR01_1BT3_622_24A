@@ -1,21 +1,18 @@
 package ec.edu.epn.Servlets;
 
-import ec.edu.epn.logica.Cliente;
-import ec.edu.epn.logica.ControladoraUsuario;
 import ec.edu.epn.logica.Desarrollador;
 import ec.edu.epn.logica.Videojuego;
-import ec.edu.epn.persistencia.ControladoraPersistencia;
+import ec.edu.epn.persistencia.DAOPersistencia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 @WebServlet(name = "SvVideojuego", value = "/SvVideojuego")
 public class SvVideojuego extends HttpServlet {
-    ControladoraPersistencia controladoraPersistencia = new ControladoraPersistencia();
+    DAOPersistencia daoPersistencia = new DAOPersistencia();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -37,7 +34,7 @@ public class SvVideojuego extends HttpServlet {
         videojuego.setDescripcion(descripcion);
         videojuego.setPrecio(precio);
         videojuego.setDesarrollador(desarrollador);
-        controladoraPersistencia.crearVideojuego(videojuego);
+        daoPersistencia.crearVideojuego(videojuego);
         response.sendRedirect("index.jsp");
     }
 }
